@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "[Nova]": {
+      "titleBar.activeBackground": "#2d9d9a",
+      "titleBar.activeForeground": "#ffffff"
+    }
+  },
+  "window.titleBarStyle": "custom"
+}
