@@ -1,70 +1,48 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { Fragment } from "react";
+import { Helmet } from "react-helmet";
+import { withPrefix } from "gatsby";
+import useSiteMetadata from "./site-meta-data";
+import Navbar from "./navbar";
+import "./styles.scss";
+import styled from "styled-components";
 
-import { rhythm, scale } from "../utils/typography"
+const Main = styled.main`
+  padding: 0 var(--scale-3) var(--scale-5);
+  max-width: var(--scale-xl);
+  margin: 0 auto;
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
-
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
+  &.full-width {
+    max-width: 100%;
+    padding: 0 var(--scale-3);
   }
-  return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
-  )
-}
+`;
 
-export default Layout
+const Layout = ({ location, title, children, fullWidth }) => {
+  const { description } = useSiteMetadata();
+
+  return (
+    <Fragment>
+      <Helmet>
+        <html lang="en" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+
+        <link rel="apple-touch-icon" sizes="180x180" href={`${withPrefix("/")}img/apple-touch-icon.png`} />
+        <link rel="icon" type="image/png" href={`${withPrefix("/")}img/favicon-32x32.png`} sizes="32x32" />
+        <link rel="icon" type="image/png" href={`${withPrefix("/")}img/favicon-16x16.png`} sizes="16x16" />
+
+        <link rel="mask-icon" href={`${withPrefix("/")}img/safari-pinned-tab.svg`} color="#ff4400" />
+        <meta name="theme-color" content="#fff" />
+
+        <meta property="og:type" content="business.business" />
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content="/" />
+        <meta property="og:image" content={`${withPrefix("/")}img/og-image.jpg`} />
+      </Helmet>
+      <Navbar />
+      <Main className={fullWidth && "full-width"}>{children}</Main>
+    </Fragment>
+  );
+};
+
+export default Layout;

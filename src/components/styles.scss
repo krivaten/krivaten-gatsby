@@ -1,0 +1,121 @@
+:root {
+  --color-shadow-primary: 0 0 0 0.2rem rgba(45, 157, 154, 0.35);
+  --color-primary-d3: #003332;
+  --color-primary-d2: #004c4b;
+  --color-primary-d1: #006664;
+  --color-primary: #00807e;
+  --color-primary-l1: #329997;
+  --color-primary-l2: #66b2b1;
+  --color-primary-l3: #7fbfbe;
+  --color-primary-l4: #b2d8d8;
+
+  --color-shadow-secondary: 0 0 0 0.2rem rgba(190, 181, 124, 0.35);
+  --color-secondary-d3: #4c4831;
+  --color-secondary-d2: #726c4a;
+  --color-secondary-d1: #989063;
+  --color-secondary: #beb57c;
+  --color-secondary-l1: #cbc396;
+  --color-secondary-l2: #d8d2b0;
+  --color-secondary-l3: #e5e1ca;
+  --color-secondary-l4: #f2f0e4;
+
+  --const-stoplight-info: #0079c1;
+  --const-stoplight-success: #0e8a00;
+  --const-stoplight-warning: #f0b400;
+  --const-stoplight-alert: #c30000;
+  --const-global-focus: 0 0 8px 2px #88c1fb;
+
+  --color-shadow-gray: 0 0 0 0.2rem rgba(178, 175, 168, 0.35);
+  --color-black: #6c6960;
+  --color-gray-d4: #232321;
+  --color-gray-d3: #474643;
+  --color-gray-d2: #6a6964;
+  --color-gray-d1: #8e8c86;
+  --color-gray: #b2afa8;
+  --color-gray-l1: #c1bfb9;
+  --color-gray-l2: #d0cfca;
+  --color-gray-l3: #e0dfdc;
+  --color-gray-l4: #efefed;
+  --color-white: #f9f9f9;
+  --color-white-l1: #fcfcfc;
+
+  --scale-0: 0;
+  --scale-1: 0.25rem;
+  --scale-2: 0.5rem;
+  --scale-3: 1rem;
+  --scale-4: 2rem;
+  --scale-5: 4rem;
+  --scale-6: 8rem;
+  --scale-7: 16rem;
+  --scale-sm: 24rem;
+  --scale-md: 30rem;
+  --scale-lg: 34rem;
+  --scale-xl: 38em;
+
+  --disabled-opacity: 0.4;
+
+  --border-radius-1: 3px;
+  --border-radius-2: 12px;
+  --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-2: 0 3px 12px rgba(0, 0, 0, 0.25);
+  --duration-1: 0.2s;
+  --duration-2: 0.4s;
+  --duration-3: 0.8s;
+  --tween-1: 0.2s ease;
+  --tween-2: 0.4s ease;
+  --tween-3: 0.8s ease;
+  --icon-size: calc(var(--scale-3) * 1.5);
+
+  --font-serif: Georgia, Times, "Times New Roman", serif;
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif;
+  --text-h1-font-family: var(--font-sans-serif);
+  --text-h1-font-weight: 800;
+
+  --text-h2-font-family: var(--font-sans-serif);
+  --text-h2-font-weight: 800;
+
+  --text-h3-font-family: var(--font-sans-serif);
+  --text-h3-font-weight: 600;
+
+  --text-h4-font-family: var(--font-sans-serif);
+  --text-h4-font-weight: 600;
+
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-l1);
+  --color-link-active: var(--color-primary-d1);
+}
+
+@import "normalize";
+@import "typography";
+
+html {
+  background: var(--color-white);
+  color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Code Block Hack
+[data-language] {
+  @media screen and (min-width: 65rem) {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    width: calc(100% + 4rem);
+  }
+
+  @media screen and (min-width: 80rem) {
+    margin-left: -4rem;
+    margin-right: -4rem;
+    width: calc(100% + 8rem);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: var(--const-global-focus);
+}
