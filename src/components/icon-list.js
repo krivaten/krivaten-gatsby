@@ -1,6 +1,6 @@
 import React from "react";
 
-import Icon from "./Icon";
+import Icon from "./icon";
 import styled from "styled-components";
 import media from "../utils/media";
 import vueIcon from "../img/icons/vue.svg";

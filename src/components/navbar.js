@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import Icon from "../components/Icon";
+import Icon from "../components/icon";
 import logoIcon from "../img/icons/logo.svg";
 
 const NavContainer = styled.nav`

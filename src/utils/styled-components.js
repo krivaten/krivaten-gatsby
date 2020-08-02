@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import media from "./media";
-import Icon from "../components/Icon";
+import Icon from "../components/icon";
 
 export const PageWrapperSmall = styled.div`
   margin-left: auto;
