@@ -1,56 +1,73 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-
-import Bio from "../components/bio";
+import kebabCase from "lodash/kebabCase";
 import Layout from "../components/layout";
+import folderIcon from "./../img/icons/folder.svg";
 import SEO from "../components/seo";
+import calendarIcon from "./../img/icons/calendar.svg";
+import styled from "styled-components";
+import PreviewCompatibleImage from "../components/preview-compatible-image";
+import {
+  MetaIcon,
+  MetaContainer,
+  MetaItemDetail,
+  MetaItemDetailList,
+  MetaItemTerm,
+  MetaItemWrapper
+} from "../utils/styled-components";
+
+const Description = styled.blockquote`
+  background: var(--color-secondary-l4);
+  margin: var(--scale-4) 0;
+  padding: var(--scale-3) var(--scale-4);
+  font-style: italic;
+`;
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
+  const { title, description, tags, featuredimage } = post.frontmatter;
   const siteTitle = data.site.siteMetadata.title;
-  const { previous, next } = pageContext;
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
+      <SEO title={title} description={description || post.excerpt} />
       <article>
         <header>
-          <h1>{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <h1>{title}</h1>
+          <MetaContainer>
+            <MetaItemWrapper>
+              <MetaItemTerm>
+                <MetaIcon iconid={calendarIcon.id} id="post-date" title="Post Created" />
+              </MetaItemTerm>
+              <MetaItemDetail>{post.frontmatter.date}</MetaItemDetail>
+            </MetaItemWrapper>
+            {tags && tags.length ? (
+              <MetaItemWrapper>
+                <MetaItemTerm>
+                  <MetaIcon iconid={folderIcon.id} id="post-date" title="Post Categories" />
+                </MetaItemTerm>
+                <MetaItemDetail>
+                  <MetaItemDetailList>
+                    {tags.map(tag => (
+                      <li key={tag + `tag`}>
+                        <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                      </li>
+                    ))}
+                  </MetaItemDetailList>
+                </MetaItemDetail>
+              </MetaItemWrapper>
+            ) : null}
+          </MetaContainer>
+          <PreviewCompatibleImage
+            imageInfo={{
+              image: featuredimage,
+              alt: `${title}`
+            }}
+          />
+          <Description>{description}</Description>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
       </article>
-
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
     </Layout>
   );
 };
@@ -72,6 +89,14 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 1920, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

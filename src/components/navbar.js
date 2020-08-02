@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Icon from "../components/Icon";
-import logoIcon from "../img/logo.svg";
+import logoIcon from "../img/icons/logo.svg";
 
 const NavContainer = styled.nav`
   width: 100%;

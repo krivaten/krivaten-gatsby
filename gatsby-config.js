@@ -1,31 +1,27 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`
-    },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    title: `Kris Van Houten`,
+    description: `christian, husband, father, introvert, bookworm, developer, designer, peacemaker`,
+    siteUrl: `https://krivaten.com/`,
     social: {
-      twitter: `kylemathews`
+      twitter: `krivaten`
     }
   },
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-svg-sprite`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`
+        path: `${__dirname}/content/assets`
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`
+        path: `${__dirname}/content/blog`,
+        name: `blog`
       }
     },
     {
@@ -35,14 +31,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
+              maxWidth: 1920
             }
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
-            }
+            resolve: `gatsby-remark-responsive-iframe`
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
@@ -52,23 +45,17 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      }
-    },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Kris Van Houten`,
+        short_name: `krivaten`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#f9f9f9`,
+        theme_color: `#00807e`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`
+        icon: `src/img/favicon-logo.png`
       }
     },
     `gatsby-plugin-react-helmet`

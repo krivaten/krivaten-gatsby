@@ -1,0 +1,80 @@
+---
+title: What's going on Now
+date: 2020-02-01T12:00:00.000Z
+---
+
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import BookList from "../components/book-list";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import {BaseSection, IntroSection, SectionInner} from "../utils/sections"
+import calendarIcon from '../img/icons/calendar.svg';
+import {
+  MetaIcon,
+  MetaContainer,
+  MetaItemDetail,
+  MetaItemTerm,
+  MetaItemWrapper
+} from '../utils/styled-components';
+
+export default ({children, _frontmatter}) => (
+  <Layout full-width>
+    <SEO title="Now" />
+    <BaseSection align="left">
+      <SectionInner>
+        <h1>{_frontmatter.title}</h1>
+        <MetaContainer>
+          <MetaItemWrapper>
+            <MetaItemTerm>
+              <MetaIcon
+                iconid={calendarIcon.id}
+                id="post-date"
+                title="Post Created"
+              />
+            </MetaItemTerm>
+            <MetaItemDetail>{new Date(_frontmatter.date).toDateString()}</MetaItemDetail>
+          </MetaItemWrapper>
+        </MetaContainer>
+        {children}
+      </SectionInner>
+    </BaseSection>
+    <BaseSection background="var(--color-gray-l4)" align="center">
+      <SectionInner>
+        <h2>Recent Books</h2>
+        <p>
+          Reading is one of my favorite hobbies at the moment. Below are some
+          of the books I've recently finished.
+        </p>
+        <BookList />
+      </SectionInner>
+    </BaseSection>
+  </Layout>
+)
+
+
+## Life in General
+
+After a couple years of questions, it looks we are finally getting some answers concerning our sons developmental delays. There was a scare for a couple months where we thought it might be a Leukodystrophy, but those fears were only recently alleviated. Thankfully, Andrew has started walking consistently, and is starting to make a larger variety of sounds; and all this within the last few weeks! We're hopeful this trend will continue of course!
+
+On top of that, we're still in North Carolina, though to say we miss the mountains of Colorado is a massive understatement. Who knows if we'll ever make our way back to them, but in the meantime I'm trying to get involved with our local church while also trying to train for the Spartan Race Trifecta this year; most of which is done with my buddies in F3.
+
+## Projects
+
+### Web Component Decorators
+
+As part of my effort to use vanilla JS more often, I've been spending a lot of time building a series of Web Components, sans framework. While I love projects like Stencil JS, I am not a fan of being tied to using their preferred bundler in order to use their tools. So I dug in to the plain Web Components API, and built a few JS Decorators to make the process a lot smoother. I look forward to publishing them as soon as I pressure test them a little more, so stay tuned!
+
+### Elassus
+
+I love functional CSS. In my opinion it is _a_ solution which solves a lot of problems that have been ravaging our CSS the last several years. As such, a few years back I built my own functional CSS library called Elassus. The beauty of it, is that every class is generated using variables and functions, and is customizable to the _nth_ degree; I mean, even the class name syntax is customizable! Though I haven't made updates to it in a couple years, I still use it for some projects because it really doesn't have any issues that need to be addressed (Outside of adding support for CSS Grid).
+
+## Interests
+
+Here's some things that have been adding value or impact to my life lately:
+
+- [Notion](https://www.notion.so)
+- [F3](https://f3nation.com/)
+- [Daily Stoic](https://dailystoic.com/)
+- [Spartan Race](https://www.spartan.com/en)
+- [Getting Things Done](https://gettingthingsdone.com/)

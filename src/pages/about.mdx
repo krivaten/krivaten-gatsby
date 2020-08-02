@@ -1,0 +1,35 @@
+---
+title: I'm Kris Van Houten
+description: A quick learning, self taught, highly experienced, hard worker who loves to use my creativity and knowledge to help make the workplace a more streamlined and efficient venue of professionalism, setting widespread examples through strong performance.
+tools:
+  title: Things I Use
+  description: >
+    I take a lot of pride in the assortment of technologies, frameworks, and services I have had the privelage of learning over the years. Below is a collection of some of the things I enjoy working with for a variety of reasons.
+---
+
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import IconList from "../components/icon-list";
+import SEO from "../components/seo";
+import Layout from "../components/layout";
+import {BaseSection, IntroSection, SectionInner} from "../utils/sections"
+
+export default ({_frontmatter}) => (
+  <Layout full-width>
+    <SEO title="About" />
+    <IntroSection>
+      <SectionInner>
+        <h1 className="h2">{_frontmatter.title}</h1>
+        {_frontmatter.description}
+      </SectionInner>
+    </IntroSection>
+    <BaseSection align="center">
+      <SectionInner>
+        {_frontmatter.tools.title && <h3>{_frontmatter.tools.title}</h3>}
+        {_frontmatter.tools.description && <p>{_frontmatter.tools.description}</p>}
+        <IconList />
+      </SectionInner>
+    </BaseSection>
+  </Layout>
+)
+
