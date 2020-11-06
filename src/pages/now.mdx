@@ -8,17 +8,11 @@ import { graphql } from "gatsby";
 import BookList from "../components/book-list";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import {BaseSection, IntroSection, SectionInner} from "../utils/sections"
-import calendarIcon from '../img/icons/calendar.svg';
-import {
-  MetaIcon,
-  MetaContainer,
-  MetaItemDetail,
-  MetaItemTerm,
-  MetaItemWrapper
-} from '../utils/styled-components';
+import { BaseSection, IntroSection, SectionInner } from "../utils/sections";
+import calendarIcon from "../img/icons/calendar.svg";
+import { MetaIcon, MetaContainer, MetaItemDetail, MetaItemTerm, MetaItemWrapper } from "../utils/styled-components";
 
-export default ({children, _frontmatter}) => (
+export default ({ children, _frontmatter }) => (
   <Layout full-width>
     <SEO title="Now" />
     <BaseSection align="left">
@@ -27,11 +21,7 @@ export default ({children, _frontmatter}) => (
         <MetaContainer>
           <MetaItemWrapper>
             <MetaItemTerm>
-              <MetaIcon
-                iconid={calendarIcon.id}
-                id="post-date"
-                title="Post Created"
-              />
+              <MetaIcon iconid={calendarIcon.id} id="post-date" title="Post Created" />
             </MetaItemTerm>
             <MetaItemDetail>{new Date(_frontmatter.date).toDateString()}</MetaItemDetail>
           </MetaItemWrapper>
@@ -42,22 +32,26 @@ export default ({children, _frontmatter}) => (
     <BaseSection background="var(--color-gray-l4)" align="center">
       <SectionInner>
         <h2>Recent Books</h2>
-        <p>
-          Reading is one of my favorite hobbies at the moment. Below are some
-          of the books I've recently finished.
-        </p>
+        <p>Reading is one of my favorite hobbies at the moment. Below are some of the books I've recently finished.</p>
         <BookList />
       </SectionInner>
     </BaseSection>
   </Layout>
-)
-
+);
 
 ## Life in General
 
-After a couple years of questions, it looks we are finally getting some answers concerning our sons developmental delays. There was a scare for a couple months where we thought it might be a Leukodystrophy, but those fears were only recently alleviated. Thankfully, Andrew has started walking consistently, and is starting to make a larger variety of sounds; and all this within the last few weeks! We're hopeful this trend will continue of course!
+Back in 2018 when we decided to move from southwest Colorado to Charlotte we said that we were done moving. However, immediately upon arriving in North Carolina, we knew it was a mistake to leave the Rockies. But for a number of reasons we decided to try and stick it out.
 
-On top of that, we're still in North Carolina, though to say we miss the mountains of Colorado is a massive understatement. Who knows if we'll ever make our way back to them, but in the meantime I'm trying to get involved with our local church while also trying to train for the Spartan Race Trifecta this year; most of which is done with my buddies in F3.
+Fast forward to June of this year, we did a big family vacation back to Colorado and before we even got there the excitement was real. Within a few days, we knew we had to come back. One of the perks of COVID is that it has boomed the housing market in Charlotte, because of a mass exodus from places like New York and New Jersey, so we were able to sell house and leave with a nice check at the end. Of course most of that went to the move but we found a place we truly love.
+
+In regards to our son, we still have no idea what's going on with him outside of hypotonia and appraxia, both of which explain his low muscle tone and difficulty speaking. But that's not a diagnosis that comes with much assistance, so we're still trying to figure out what to do.
+
+COVID killed my attempts at the Spartan Trifecta, but it wasn't helped by me breaking my foot in seven places and getting a Lisfranc injury doing burpees over a barbell. But I'm doing great now, and considering giving it another attempt in 2021.
+
+Since where we live doesn't have an F3 region, I am considering getting on started up here as well. It would be a great way to get plugged in to the community and bring people together.
+
+This year I've also read _a lot_ about Stoicism and find that it works quite well with how I already think, so it has been a great blessing in many ways. It's rejuvinated my love of reading and I've enjoyed finding ways to incorporate it in to my Christian faith.
 
 ## Projects
 
@@ -73,8 +67,8 @@ I love functional CSS. In my opinion it is _a_ solution which solves a lot of pr
 
 Here's some things that have been adding value or impact to my life lately:
 
-- [Notion](https://www.notion.so)
+- [Obsidian](https://obsidian.md/)
 - [F3](https://f3nation.com/)
-- [Daily Stoic](https://dailystoic.com/)
+- [Stoicism](https://dailystoic.com/what-is-stoicism-a-definition-3-stoic-exercises-to-get-you-started/)
 - [Spartan Race](https://www.spartan.com/en)
-- [Getting Things Done](https://gettingthingsdone.com/)
+- [No Mans Sky](https://www.nomanssky.com/)
